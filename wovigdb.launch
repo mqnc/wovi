@@ -1,0 +1,5 @@
+<launch>
+	<node name="wovi" pkg="wovi" type="wovi" launch-prefix="gdb -ex run --args" output="screen"/>
+</launch>
+<!--catkin_make -DCMAKE_BUILD_TYPE=Debug-->
+<!--catkin_make -DCMAKE_BUILD_TYPE=Release-->

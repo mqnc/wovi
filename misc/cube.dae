@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <created>2009-10-25T19:36:15</created>
+    <modified>2009-10-25T19:36:15</modified>
+    <unit name="decimetre" meter="0.1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_cameras>
+    <camera id="Camera" name="Camera">
+      <optics>
+        <technique_common>
+          <perspective>
+            <xfov>1</xfov>
+            <aspect_ratio>0.099999964237</aspect_ratio>
+            <znear>0.099999964237</znear>
+            <zfar>100</zfar>
+          </perspective>
+        </technique_common>
+      </optics>
+    </camera>
+  </library_cameras>
+  <library_lights>
+    <light id="Lamp" name="Lamp">
+      <technique_common>
+        <point>
+          <color>1 1 1</color>
+          <constant_attenuation>1</constant_attenuation>
+          <linear_attenuation>0</linear_attenuation>
+          <quadratic_attenuation>1</quadratic_attenuation>
+        </point>
+      </technique_common>
+    </light>
+  </library_lights>
+  <library_images/>
+  <library_effects>
+    <effect id="Material-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color>0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color>0.1 0.1 0.1 1</color>
+            </ambient>
+            <diffuse>
+              <color>0.8 0.8 0.8 1</color>
+            </diffuse>
+            <reflective>
+              <color>0 0 0 1</color>
+            </reflective>
+            <reflectivity>
+              <float>0</float>
+            </reflectivity>
+            <transparent>
+              <color>0 0 0 1</color>
+            </transparent>
+            <transparency>
+              <float>1</float>
+            </transparency>
+            <index_of_refraction>
+              <float>1</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_materials>
+    <material id="Material">
+      <instance_effect url="#Material-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="Cube-mesh">
+      <mesh>
+        <source id="Cube-mesh-positions">
+          <float_array id="Cube-mesh-positions-array" count="24">1 0.999999940395 -1 1 -1 -1 -1 -0.999999821186 -1 -0.999999642372 1 -1 1 0.999999463558 1 0.999999344348 -1.000001 1 -1 -0.999999642372 1 -0.999999940395 1 1</float_array>
+          <technique_common>
+            <accessor source="#Cube-mesh-positions-array" count="8" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Cube-mesh-normals">
+          <float_array id="Cube-mesh-normals-array" count="24">0.577349185943 0.577349185943 -0.577349185943 0.577349185943 -0.577349185943 -0.577349185943 -0.577349185943 -0.577349185943 -0.577349185943 -0.577349185943 0.577349185943 -0.577349185943 0.577349185943 0.577349185943 0.577349185943 0.577349185943 -0.577349185943 0.577349185943 -0.577349185943 -0.577349185943 0.577349185943 -0.577349185943 0.577349185943 0.577349185943</float_array>
+          <technique_common>
+            <accessor source="#Cube-mesh-normals-array" count="8" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Cube-mesh-vertices">
+          <input semantic="POSITION" source="#Cube-mesh-positions"/>
+        </vertices>
+        <polylist material="Material" count="6">
+          <input semantic="VERTEX" source="#Cube-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Cube-mesh-normals" offset="0"/>
+          <vcount>4 4 4 4 4 4 </vcount>
+          <p>0 1 2 3 4 7 6 5 0 4 5 1 1 5 6 2 2 6 7 3 4 0 3 7</p>
+        </polylist>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_animations/>
+  <library_controllers/>
+  <library_visual_scenes>
+    <visual_scene id="Scene">
+      <node id="Cube" type="NODE">
+        <translate sid="location">0 0 0</translate>
+        <rotate sid="rotationZ">0 0 1 0</rotate>
+        <rotate sid="rotationY">0 1 0 0</rotate>
+        <rotate sid="rotationX">1 0 0 0</rotate>
+        <scale sid="scale">1 1 1</scale>
+        <instance_geometry url="#Cube-mesh">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Material" target="#Material"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+      <node id="Lamp" type="NODE">
+        <translate sid="location">4.076245 1.005454 5.903862</translate>
+        <rotate sid="rotationZ">0 0 1 106.9363</rotate>
+        <rotate sid="rotationY">0 1 0 3.163707</rotate>
+        <rotate sid="rotationX">1 0 0 37.26105</rotate>
+        <scale sid="scale">1 1 1</scale>
+        <instance_light url="#Lamp"/>
+      </node>
+      <node id="Camera" type="NODE">
+        <translate sid="location">7.481132 -6.50764 5.343665</translate>
+        <rotate sid="rotationZ">0 0 1 46.69194</rotate>
+        <rotate sid="rotationY">0 1 0 0.619767916163</rotate>
+        <rotate sid="rotationX">1 0 0 63.55929</rotate>
+        <scale sid="scale">1 1 1</scale>
+        <instance_camera url="#Camera"/>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>
+
+

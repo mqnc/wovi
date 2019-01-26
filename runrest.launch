@@ -1,0 +1,11 @@
+<launch>
+	<param name="robot_description" textfile="$(find lwr_description)/urdf/lwr1.urdf" />
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+	<node name="spacenav_node" pkg="spacenav_node" type="spacenav_node" />
+	<node name="rviz" pkg="rviz" type="rviz"/> <!-- args="-d $(find urdf_tutorial)/urdf.rviz" required="true" -->
+	<node pkg="joy" type="joy_node" name="joy">
+		<param name="deadzone" value="0.2" />
+	</node>
+	<node pkg="keyboard" type="keyboard" name="keyboard" />
+</launch>
+
